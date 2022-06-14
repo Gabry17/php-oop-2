@@ -1,5 +1,8 @@
 <?php 
+require_once __DIR__ . "/food.php";
 
+$croquette = new Food(20, 200, 1, "Crocchette", "Salmon");
+var_dump($croquette);
 ?>
 
 <!DOCTYPE html>

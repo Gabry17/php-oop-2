@@ -10,4 +10,5 @@ class Product {
         $this->quantity = $_quantity;
     }
 }
+
 ?>
