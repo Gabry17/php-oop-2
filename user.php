@@ -35,5 +35,17 @@ class User {
 
         return $tot;
     }
+
+    //aggiungo sconto 
+    public function discount(){
+        $discount = 0;
+        if($this->registration){
+            $discount = 20;
+        } else {
+            $discount = "nessuno";
+        }
+
+        return $discount;
+    }
 }
 ?>
