@@ -2,16 +2,19 @@
 require_once __DIR__ . "/food.php";
 require_once __DIR__ . "/game.php";
 require_once __DIR__ . "/accessory.php";
+require_once __DIR__ . "/user.php";
+
 
 $croquette = new Food("cibo", 20, 200, "Crocchette", "Salmone");
-var_dump($croquette);
 
 $ball = new Game("palla giocattolo", 5, 150);
-var_dump($ball);
 
+$collar = new Accessory("collare", 15, 50);
 
-$collar = new Accessory("collar", 15, 50);
-var_dump($collar);
+$gabriele = new User("Gabriele", "Bianchi", "gabry@gmail.com");
+$gabriele->addCart($ball);
+$gabriele->addCart($collar);
+var_dump($gabriele);
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +26,20 @@ var_dump($collar);
     <title>OOP 2</title>
 </head>
 <body>
-    <h2>PRODOTTI</h2>
+    <h2>Prodotti</h2>
     <ul>
         <li><?php echo $croquette->productInfo(); ?></li>
         <li><?php echo $ball->productInfo(); ?></li>
         <li><?php echo $collar->productInfo(); ?></li>
     </ul>
 
-    <h2>CARRELLO</h2>
+    <h2>Carrello di <?php echo $gabriele->name; ?>:</h2>
+    <ul>
+        <?php foreach($gabriele->cart as $item){?>
+            <li>
+            <?php echo $item->productInfo(); ?>
+            </li>
+        <?php } ?>
+    </ul>
 </body>
 </html>
