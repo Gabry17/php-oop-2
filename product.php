@@ -5,11 +5,14 @@ class Product {
     public $weight;
     public $quantity;
 
-    function __construct($_type, $_price, $_weight, $_quantity){
+    function __construct($_type, $_price, $_weight){
         $this->type = $_type;
         $this->price = $_price;
         $this->weight = $_weight;
-        $this->quantity = $_quantity;
+    }
+
+    public function productInfo() {
+        return "Tipo: $this->type Peso: $this->weight gr Prezzo: $this->price €";
     }
 }
 
