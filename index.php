@@ -5,16 +5,16 @@ require_once __DIR__ . "/accessory.php";
 require_once __DIR__ . "/user.php";
 
 
-$croquette = new Food("cibo", 20, 200, "Crocchette", "Salmone");
+$croquette = new Food("cibo", 20, 200, 2, "Crocchette", "Salmone");
 
-$ball = new Game("palla giocattolo", 5, 150);
+$ball = new Game("palla giocattolo", 5, 150, 2);
 
-$collar = new Accessory("collare", 15, 50);
+$collar = new Accessory("collare", 15, 50, 1);
 
 $gabriele = new User("Gabriele", "Bianchi", "gabry@gmail.com");
 $gabriele->addCart($ball);
 $gabriele->addCart($collar);
-var_dump($gabriele);
+$gabriele->addCart($croquette);
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +37,13 @@ var_dump($gabriele);
     <ul>
         <?php foreach($gabriele->cart as $item){?>
             <li>
-            <?php echo $item->productInfo(); ?>
+            <?php echo " Tipo: " .$item->type . " " . " Quantità: " . $item->quantity . " Prezzo: " . $item->productPrice() . "€"; ?>
             </li>
         <?php } ?>
+        <li>
+            <h3>Prezzo totale: <?php echo $gabriele->totalPrice();?>€</h3>
+        </li>
     </ul>
+
 </body>
 </html>

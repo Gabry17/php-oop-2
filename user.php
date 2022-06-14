@@ -16,5 +16,14 @@ class User {
     public function addCart($product){
         $this->cart[] = $product;
     } 
+
+    public function totalPrice(){
+        $tot = 0;
+        foreach($this->cart as $item){
+            $tot += $item->price * $item->quantity;
+        }
+
+        return $tot;
+    }
 }
 ?>
