@@ -15,7 +15,9 @@ class User {
 
     //aggiungere prodotti al carrello
     public function addCart($product){
-        $this->cart[] = $product;
+        if($product->available){
+            $this->cart[] = $product;
+        }
     } 
 
     //totale prezzo carrello

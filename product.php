@@ -4,6 +4,7 @@ class Product {
     public $price;
     public $weight;
     public $quantity;
+    public $available = true;
 
     function __construct($_type, $_price, $_weight, $_quantity){
         $this->type = $_type;
@@ -20,6 +21,14 @@ class Product {
         $product_price = $this->price * $this->quantity;
 
         return $product_price;
+    }
+
+    public function notAvailable(){
+        $disp = "";
+        if (!$this->available) {
+            $disp = "Non Disponibile";
+        }
+        return $disp;
     }
 }
 

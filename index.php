@@ -8,6 +8,7 @@ require_once __DIR__ . "/user.php";
 $croquette = new Food("cibo", 20, 200, 2, "Crocchette", "Salmone");
 
 $ball = new Game("palla giocattolo", 5, 150, 2);
+$ball->available = false;
 
 $collar = new Accessory("collare", 15, 50, 1);
 
@@ -15,6 +16,7 @@ $gabriele = new User("Gabriele", "Bianchi", "gabry@gmail.com");
 $gabriele->addCart($ball);
 $gabriele->addCart($collar);
 $gabriele->addCart($croquette);
+
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +30,9 @@ $gabriele->addCart($croquette);
 <body>
     <h2>Prodotti</h2>
     <ul>
-        <li><?php echo $croquette->productInfo(); ?></li>
-        <li><?php echo $ball->productInfo(); ?></li>
-        <li><?php echo $collar->productInfo(); ?></li>
+        <li><?php echo $croquette->productInfo() . " " . $croquette->notAvailable() ; ?></li>
+        <li><?php echo $ball->productInfo() . " " . $ball->notAvailable(); ?></li>
+        <li><?php echo $collar->productInfo() . " " . $collar->notAvailable(); ?></li>
     </ul>
 
     <h2>Carrello di <?php echo $gabriele->name; ?>:</h2>
