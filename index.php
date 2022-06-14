@@ -44,6 +44,9 @@ $gabriele->addCart($croquette);
             <p>Sconto%: <?php echo $gabriele->discount();?></p>
             <h3>Prezzo totale: <?php echo $gabriele->totalPrice();?>€</h3>
         </li>
+        <li>
+            <h2><?php echo $gabriele->pay();?></h2>
+        </li>
     </ul>
 
 </body>

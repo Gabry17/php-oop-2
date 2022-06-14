@@ -4,7 +4,7 @@ class User {
     public $surname;
     public $email;
     public $registration = true;
-    public $cash = true;
+    public $cash = false;
     public $cart = [];
 
     function __construct($_name, $_surname, $email){
@@ -46,6 +46,18 @@ class User {
         }
 
         return $discount;
+    }
+
+    //Pagamento
+    public function pay(){
+        $payment = "";
+        if($this->cash){
+            $payment = "Il tuo ordine è andato a buon fine";
+        } else {
+            $payment = "Pagamento annullato";
+        }
+
+        return $payment;
     }
 }
 ?>
