@@ -1,8 +1,12 @@
 <?php 
 require_once __DIR__ . "/food.php";
+require_once __DIR__ . "/game.php";
 
-$croquette = new Food(20, 200, 1, "Crocchette", "Salmon");
+$croquette = new Food("cibo", 20, 200, 1, "Crocchette", "Salmone");
 var_dump($croquette);
+
+$ball = new Game("palla giocattolo", 5, 150, 1);
+var_dump($ball);
 ?>
 
 <!DOCTYPE html>
