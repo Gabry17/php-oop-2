@@ -12,11 +12,12 @@ $ball->available = false;
 
 $collar = new Accessory("collare", 15, 50, 1);
 
-$gabriele = new User("Gabriele", "Bianchi", "gabry@gmail.com");
+$gabriele = new User();
 $gabriele->addCart($ball);
 $gabriele->addCart($collar);
 $gabriele->addCart($croquette);
 
+$gabriele->addRegistration("Gabriele", "Bianchi", "gabri@gmail.com");
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ $gabriele->addCart($croquette);
         <li><?php echo $collar->productInfo() . " " . $collar->notAvailable(); ?></li>
     </ul>
 
-    <h2>Carrello di <?php echo $gabriele->name; ?>:</h2>
+    <h2>Carrello:</h2>
     <ul>
         <?php foreach($gabriele->cart as $item){?>
             <li>
@@ -43,7 +44,7 @@ $gabriele->addCart($croquette);
             </li>
         <?php } ?>
         <li>
-            <p>Sconto%: <?php echo $gabriele->discount();?></p>
+            
             <h3>Prezzo totale: <?php echo $gabriele->totalPrice();?>€</h3>
         </li>
         <li>
